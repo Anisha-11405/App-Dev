@@ -18,32 +18,35 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Builder;
 
-
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(builderClassName = "AppointmentBuilder")
 @Table(name = "appointment")
-
 public class Appointment {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // Patient books appointment
     @ManyToOne
-    @JoinColumn(name = "patient_id")
+    @JoinColumn(name = "patient_id", nullable = false)
     private Patient patient;
 
+    // Doctor is assigned to the appointment
     @ManyToOne
-    @JoinColumn(name = "doctor_id")
+    @JoinColumn(name = "doctor_id", nullable = false)
     private Doctor doctor;
 
     private LocalDate appointmentDate;
     private LocalTime appointmentTime;
     private String reason;
 
+    // PENDING (by default) -> APPROVED or REJECTED (by doctor)
     @Enumerated(EnumType.STRING)
-    private AppointmentStatus status;
-    private LocalDateTime createdAt;
+    private AppointmentStatus status = AppointmentStatus.PENDING;
+
+    private LocalDateTime createdAt = LocalDateTime.now();
 }
