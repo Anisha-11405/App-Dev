@@ -1,0 +1,119 @@
+
+.appointments-container {   
+  max-width: 1000px;   
+  margin: 0 auto;   
+  padding: 20px; 
+}  
+
+.appointments-list {   
+  display: grid;   
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--spacing-lg); 
+}  
+
+.appointment-card {   
+  border: 1px solid var(--border-primary);   
+  border-radius: var(--radius-lg);   
+  padding: var(--spacing-lg);   
+  background: var(--bg-card);   
+  color: var(--text-primary);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}  
+
+.appointment-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-light));
+}
+
+.appointment-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary);
+}
+
+.appointment-header {   
+  display: flex;   
+  justify-content: space-between;   
+  align-items: flex-start;   
+  margin-bottom: var(--spacing-md);
+  gap: var(--spacing-md);
+}  
+
+.appointment-header h3 {   
+  margin: 0;   
+  color: var(--text-primary);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+}  
+
+.appointment-details {
+  display: grid;
+  gap: var(--spacing-sm);
+}
+
+.appointment-details p {   
+  margin: 8px 0;   
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 14px;
+}
+
+.appointment-details strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.status {   
+  padding: 6px 12px;   
+  border-radius: 20px;   
+  font-size: 12px;   
+  font-weight: 600;   
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}  
+
+.status.scheduled {   
+  background: rgba(6, 182, 212, 0.1);   
+  color: var(--secondary);
+  border: 1px solid var(--secondary);
+}  
+
+.status.confirmed {   
+  background: rgba(16, 185, 129, 0.1);   
+  color: var(--success);
+  border: 1px solid var(--success);
+}  
+
+.status.cancelled {   
+  background: rgba(239, 68, 68, 0.1);   
+  color: var(--error);
+  border: 1px solid var(--error);
+}  
+
+.status.completed {   
+  background: rgba(139, 92, 246, 0.1);   
+  color: var(--primary-light);
+  border: 1px solid var(--primary-light);
+}
+
+@media (max-width: 768px) {
+  .appointments-container {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .appointments-list {
+    grid-template-columns: 1fr;
+  }
+}

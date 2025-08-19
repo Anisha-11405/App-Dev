@@ -1,0 +1,246 @@
+/* Sidebar Navigation Styles - FULL HEIGHT VERSION */
+.sidebar {
+  width: 280px;
+  height: calc(100vh - 60px) !important; /* FIXED: Full height minus navbar */
+  /* REMOVED: max-height: 500px; - This was limiting the height */
+  background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  left: 0;
+  top: 60px !important; /* FIXED: Start below navbar (60px navbar height) */
+  z-index: 1000;
+  border-radius: 0 12px 12px 0; /* ADDED: Rounded right corners */
+}
+
+.sidebar-header {
+  padding: 15px 20px; /* CHANGED: Reduced padding from 20px */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0; /* ADDED: Prevent shrinking */
+}
+
+.sidebar-header h3 {
+  margin: 0 0 10px 0; /* ADDED: Control heading margin */
+  font-size: 16px; /* ADDED: Smaller heading */
+  font-weight: 600;
+  color: white;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* CHANGED: Reduced gap from 12px */
+}
+
+.user-avatar {
+  width: 40px; /* CHANGED: Reduced from 50px */
+  height: 40px; /* CHANGED: Reduced from 50px */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px; /* CHANGED: Reduced from 20px */
+  font-weight: bold;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.user-details {
+  flex: 1;
+}
+
+.user-name {
+  font-size: 14px; /* CHANGED: Reduced from 16px */
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: white;
+}
+
+.user-role {
+  font-size: 11px; /* CHANGED: Reduced from 12px */
+}
+
+.role-badge, .badge {
+  padding: 3px 6px; /* CHANGED: Reduced padding */
+  border-radius: 10px; /* CHANGED: Smaller radius */
+  font-size: 9px; /* CHANGED: Smaller font */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.role-patient, .badge-primary {
+  background: #10b981;
+  color: black !important; /* FIXED: Black text for better readability */
+}
+
+.role-doctor {
+  background: #3b82f6;
+  color: black !important; /* FIXED: Black text for better readability */
+}
+
+.role-admin {
+  background: #f59e0b;
+  color: black !important; /* FIXED: Black text for better readability */
+}
+
+.sidebar-content, .sidebar-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 10px 0; /* ADDED: Compact padding */
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  margin: 0;
+}
+
+/* Navigation link styles - works for both class names */
+.nav-link, .sidebar-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px; /* CHANGED: Reduced padding from 15px */
+  color: rgba(255, 255, 255, 0.8) !important;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+  font-size: 13px; /* ADDED: Smaller font size */
+  margin-bottom: 2px; /* ADDED: Small gap between links */
+}
+
+.nav-link:hover, .sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white !important;
+  border-left-color: rgba(255, 255, 255, 0.5);
+}
+
+.nav-link.active, .sidebar-link.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: white !important;
+  border-left-color: #fbbf24;
+  font-weight: 600;
+}
+
+.nav-icon {
+  font-size: 16px; /* CHANGED: Reduced from 18px */
+  margin-right: 10px; /* CHANGED: Reduced from 12px */
+  width: 20px; /* CHANGED: Reduced from 24px */
+  text-align: center;
+  color: inherit;
+}
+
+.nav-text {
+  font-size: 13px; /* CHANGED: Reduced from 14px */
+  font-weight: 500;
+  color: inherit;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding: 15px 20px; /* CHANGED: Reduced padding */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.1);
+  flex-shrink: 0; /* ADDED: Prevent shrinking */
+}
+
+.role-permissions {
+  font-size: 11px; /* CHANGED: Reduced from 12px */
+}
+
+.role-permissions h4 {
+  margin: 0 0 8px 0; /* CHANGED: Reduced margin */
+  font-size: 12px; /* CHANGED: Reduced from 13px */
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.permissions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.permissions-list li {
+  padding: 1px 0; /* CHANGED: Reduced padding */
+  font-size: 10px; /* CHANGED: Reduced from 11px */
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.3; /* CHANGED: Tighter line height */
+}
+
+.permissions-list li[data-type="allowed"] {
+  color: rgba(16, 185, 129, 0.9);
+}
+
+.permissions-list li[data-type="denied"] {
+  color: rgba(239, 68, 68, 0.9);
+}
+
+/* Main content adjustment */
+.main-content {
+  margin-left: 280px !important;
+  background: var(--bg-primary);
+  min-height: calc(100vh - 60px);
+  overflow-y: auto;
+  padding: 30px;
+}
+
+.app-body {
+  display: flex;
+  height: calc(100vh - 60px);
+  overflow: hidden;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    /* REMOVED: max-height: none; */
+    position: relative;
+    top: 0;
+    border-radius: 0;
+    transform: translateX(0);
+  }
+  
+  .main-content {
+    margin-left: 0 !important;
+    padding: 20px;
+  }
+  
+  .sidebar-footer {
+    display: none;
+  }
+  
+  .app-body {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+/* Scrollbar styling */
+.sidebar-content::-webkit-scrollbar, .sidebar-nav::-webkit-scrollbar {
+  width: 4px; /* CHANGED: Thinner scrollbar */
+}
+
+.sidebar-content::-webkit-scrollbar-track, .sidebar-nav::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-content::-webkit-scrollbar-thumb, .sidebar-nav::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb:hover, .sidebar-nav::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
